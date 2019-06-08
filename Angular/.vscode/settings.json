@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/fa319886-55b4-4ada-b155-5d0a51b93f3a/resourceGroups/sowad/providers/Microsoft.Web/sites/control-event-client",
+    "appService.deploySubpath": "dist\\ControlEventClient"
+}

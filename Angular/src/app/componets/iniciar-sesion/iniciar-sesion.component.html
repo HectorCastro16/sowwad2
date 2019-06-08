@@ -1,0 +1,34 @@
+
+<div class="row">
+  
+  <div class="col-4 mx-auto">
+    <aside class="col-sm-12">
+
+      <div class="card">
+        <article class="card-body">
+          <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+          <h4 class="card-title mb-4 mt-1">Autenticar</h4>
+          <form #form="ngForm" (ngSubmit)="aunteticar(form)">
+            <div class="form-group">
+              <label>Tu usuario</label>
+              <input name="login" [(ngModel)]="user.login" class="form-control" placeholder="usuario" type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <a class="float-right" href="#">Forgot?</a>
+              <label>Tu clave</label>
+              <input name="clave" [(ngModel)]="user.clave" class="form-control" placeholder="******" type="password">
+            </div> <!-- form-group// -->
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Validar </button>
+            </div> <!-- form-group// -->
+          </form>
+          <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+            {{errorMessage}}!
+          </div>
+        </article>
+      </div> <!-- card.// -->
+
+    </aside> <!-- col.// -->
+  </div>
+</div>

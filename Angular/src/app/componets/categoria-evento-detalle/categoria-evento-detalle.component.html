@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+  
+      </div>
+      <div class="col-10">
+        <!---->
+        <div class="col-6">
+          <form (ngSubmit)="grabarNG(forma)" #forma="ngForm">
+            <div class="row">
+              <div class="col-9">
+                <div class="form-group" *ngIf="mostrar">
+                  <label class="col-3 control-label">Id</label>
+                  <div class="col-9">
+                    <input class="form-control input-sm" type="text" name="id_usuario" [(ngModel)]="ce.catEve_Id"
+                      readonly />
+                  </div>
+                </div>
+                <div class="form-group" *ngIf="mostrar">
+                  <label class="col-3 control-label">Codigo</label>
+                  <div class="col-9">
+                    <input class="form-control input-sm" type="text" name="codigo" [(ngModel)]="ce.catEve_codigo" readonly/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-3 control-label">Categoria</label>
+                  <div class="col-9">
+                    <input class="form-control input-sm" type="text" name="tipEve" [(ngModel)]="ce.catEve_Nombre" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-3 control-label">Descripcion</label>
+                  <div class="col-9">
+                    <input class="form-control input-sm" type="text" name="desc" [(ngModel)]="ce.catEve_Descripcion" />
+                  </div>
+                </div>
+                
+  
+  
+                <button class="btn-sm btn btn-info" type="submit" *ngIf="forma.valid">Grabar</button>
+  
+              </div>
+            </div>
+          </form>
+  
+          <br>
+        </div>
+        <!---->
+      </div>
+      <div class="col">
+  
+      </div>
+    </div>
+  </div>>

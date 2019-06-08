@@ -1,0 +1,119 @@
+
+<h2>Registro de Evento</h2>
+<br>
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  (mapClick)="mapClicked($event)">
+
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+    
+  </agm-marker>
+  <!--
+  <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle>
+-->
+</agm-map>
+
+
+<br>
+<div class="container">
+  <form (ngSubmit)="grabarNG(forma)" #forma="ngForm">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Tipo Evento</label>
+          <select [(ngModel)]="evento.tipoEvento.tipEve_Id" class="form-control" id="exampleFormControlSelect1" name="teve">
+            <option value="0">--- Selecccione ---</option>        
+            <option *ngFor="let item of te" value="{{item.tipEve_Id}}">{{item.tipEve_Nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Modalidad evento</label>
+          <select [(ngModel)]="evento.modalidadEvento.modEve_Id" class="form-control" id="exampleFormControlSelect1" name="modeve">
+            <option value="0">--- Selecccione ---</option>        
+            <option *ngFor="let item of me" value="{{item.modEve_Id}}">{{item.modEve_Nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Categoria Vento</label>
+          <select [(ngModel)]="evento.categoriaEvento.catEve_Id" class="form-control" id="exampleFormControlSelect1" name="cateve">
+            <option value="0">--- Selecccione ---</option>        
+            <option *ngFor="let item of ce" value="{{item.catEve_Id}}">{{item.catEve_Nombre}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Link Evento</label>
+          <input [(ngModel)]="evento.eve_Link_Site_oficial" name="eve_Link_Site_oficial" type="text" class="form-control" id="formGroupExampleInput" placeholder="link evento">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Descripción</label>
+          <input [(ngModel)]="evento.eve_Descripcion" name="eve_Descripcion" type="text" class="form-control" id="formGroupExampleInput" placeholder="Descripción">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Organizador</label>
+            <input [(ngModel)]="evento.eve_Organizador" name="eve_Organizador" type="text" class="form-control" id="formGroupExampleInput" placeholder="organizador">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Fecha</label>
+            <input [(ngModel)]="evento.eve_Fecha" type="date" name="eve_Fecha" class="form-control" id="formGroupExampleInput" placeholder="fecha">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Hora</label>
+            <input [(ngModel)]="evento.eve_Hora" name="eve_Hora" type="time" class="form-control" id="formGroupExampleInput" placeholder="hora">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Lugar</label>
+            <input [(ngModel)]="evento.eve_Lugar" name="eve_Lugar" type="text" class="form-control" id="formGroupExampleInput" placeholder="lugar">
+          </div>
+        </div>
+    </div>
+    <div class="row"><button type="submit" class="btn btn-success">Guardar</button></div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
