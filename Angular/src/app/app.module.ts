@@ -49,7 +49,7 @@ import { VacioComponent } from './componets/comunes/vacio/vacio.component';
     FormsModule,
     ReactiveFormsModule, 
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyATl9ix61kDPA0fayPgohOfxI5T7V1EQcQ'
+      apiKey: ''
     })
   ],
   providers: [],
